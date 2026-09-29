@@ -20,10 +20,10 @@ with st.sidebar:
     api_key_input = st.text_input("Apni Replicate API Key daalein", type="password")
     st.markdown("---")
     st.markdown("### Guide")
-    st.markdown("1. Replicate account se apani API key banayein.\n2. Use yahan paste karein.\n3. Photo upload karke enhance karein!")
+    st.markdown("1. Replicate account se apni API key banayein.\n2. Use yahan paste karein.\n3. Photo upload karke enhance karein!")
 
 # Main content
-uploaded_file = st.file_uploader("Apni Photo Chuniye (JPG/PNG)", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Apni Photo Chuniye (JPG/png)", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     # Display original image safely using PIL
@@ -42,9 +42,9 @@ if uploaded_file is not None:
                     # Prepare image for Replicate input
                     uploaded_file.seek(0)
                     
-                    # Run CodeFormer model for face/photo enhancement
+                    # Run CodeFormer using latest stable reference
                     output = client.run(
-                        "sczhou/codeformer:7de2ea26c616d5bf2245ad0d5e24f0ef9a525c65f72f8ba66835ff93f85f5aff",
+                        "sczhou/codeformer",
                         input={
                             "image": uploaded_file,
                             "codeformer_fidelity": 0.7,
