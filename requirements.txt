@@ -1,3 +1,4 @@
-streamlit
-replicate
+Streamlit
+replicate>=1.0.0
+requests
 Pillow
