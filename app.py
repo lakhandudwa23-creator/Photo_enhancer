@@ -1,4 +1,4 @@
-import streamlit as st
+Import streamlit as st
 import replicate
 import requests
 from PIL import Image
@@ -41,14 +41,13 @@ if uploaded_file is not None:
                     # Prepare image for Replicate input
                     uploaded_file.seek(0)
                     
-                    # Run CodeFormer with full correct version hash to avoid 404
+                    # Run Stable Real-ESRGAN model for perfect upscaling and face enhancement
                     output = client.run(
-                        "sczhou/codeformer:7de2ea26c616d5bf2245ad0d5e24f0ef9a525c65f72f8ba66835ff93f85f5aff",
+                        "nightmareai/real-esrgan:42fed1c4974146d4d2414e2be2c5277c7fcf05fcc3a73abf41610695738c1d7b",
                         input={
                             "image": uploaded_file,
-                            "codeformer_fidelity": 0.7,
-                            "upscale": 2,
-                            "face_upsample": True
+                            "scale": 2,
+                            "face_enhance": True
                         }
                     )
                     
