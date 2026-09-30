@@ -1,4 +1,3 @@
-
 import streamlit as st
 import replicate
 import requests
@@ -42,9 +41,9 @@ if uploaded_file is not None:
                     # Prepare image for Replicate input
                     uploaded_file.seek(0)
                     
-                    # Run CodeFormer using latest stable reference
+                    # Run CodeFormer with full correct version hash to avoid 404
                     output = client.run(
-                        "sczhou/codeformer",
+                        "sczhou/codeformer:7de2ea26c616d5bf2245ad0d5e24f0ef9a525c65f72f8ba66835ff93f85f5aff",
                         input={
                             "image": uploaded_file,
                             "codeformer_fidelity": 0.7,
